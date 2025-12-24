@@ -77,7 +77,9 @@ export default function AdminPanel() {
                 <th className="py-2 px-4 border">Name</th>
                 <th className="py-2 px-4 border">Phone</th>
                 <th className="py-2 px-4 border">Country</th>
+                <th className="py-2 px-4 border">Email</th>
                 <th className="py-2 px-4 border">Passport</th>
+                <th className="py-2 px-4 border">Job</th>
                 <th className="py-2 px-4 border">Experience</th>
                 <th className="py-2 px-4 border">Photo</th>
                 <th className="py-2 px-4 border">Passport Copy</th>
@@ -91,7 +93,9 @@ export default function AdminPanel() {
                   <td className="py-2 px-4 border">{app.name}</td>
                   <td className="py-2 px-4 border">{app.phone}</td>
                   <td className="py-2 px-4 border">{app.country}</td>
-                  <td className="py-2 px-4 border">{app.passport}</td>
+                  <td className="py-2 px-4 border">{app.email}</td>
+                  <td className="py-2 px-4 border">{app.passportNumber}</td>
+                  <td className="py-2 px-4 border">{app.jobPosition}</td>
                   <td className="py-2 px-4 border">{app.experience}</td>
                   <td className="py-2 px-4 border">
                     <a
