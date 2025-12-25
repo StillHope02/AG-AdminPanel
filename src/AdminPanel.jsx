@@ -99,7 +99,7 @@ export default function AdminPanel() {
                   <td className="py-2 px-4 border">{app.experience}</td>
                   <td className="py-2 px-4 border">
                     <a
-                      href={`http://localhost:5000/${app.photoURL}`}
+                      href={`https://agfoodbackend-production.up.railway.app/${app.photoURL}`}
                       target="_blank"
                       rel="noreferrer"
                       className="text-blue-600 underline"
@@ -109,7 +109,7 @@ export default function AdminPanel() {
                   </td>
                   <td className="py-2 px-4 border">
                     <a
-                      href={`http://localhost:5000/${app.passportURL}`}
+                      href={`https://agfoodbackend-production.up.railway.app/${app.passportURL}`}
                       target="_blank"
                       rel="noreferrer"
                       className="text-blue-600 underline"
@@ -120,7 +120,7 @@ export default function AdminPanel() {
                   <td className="py-2 px-4 border">
                     {app.certificateURL ? (
                       <a
-                        href={`http://localhost:5000/${app.certificateURL}`}
+                        href={`https://agfoodbackend-production.up.railway.app/${app.certificateURL}`}
                         target="_blank"
                         rel="noreferrer"
                         className="text-blue-600 underline"
