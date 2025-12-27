@@ -3041,7 +3041,7 @@ import stampApproved2 from './assets/approvedStmp.jpg';
 import flag from './assets/flag.png';
 import agFoods from './assets/AGFood.png';
 
-const API_URL = "https://agfoodbackend-production.up.railway.app/api/users";
+const API_URL = "https://adminag-production.up.railway.app/api/users";
 
 export default function AdminDashboard() {
     const [users, setUsers] = useState([]);
