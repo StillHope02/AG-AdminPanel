@@ -13,7 +13,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<AdminPanel />} />
-        <Route path='/user-info' element={<AdminDashboard />} />
+        {/* <Route path='/user-info' element={<AdminDashboard />} /> */}
       </Routes>
     </BrowserRouter>
   )
