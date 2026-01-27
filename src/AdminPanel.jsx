@@ -377,7 +377,7 @@ export default function AdminPanel() {
   const fetchApplications = async (statusFilter) => {
     try {
       setLoading(true);
-      const baseURL = "https://adminag-production.up.railway.app";
+      const baseURL = "https://agfoodbackend-production-63ff.up.railway.app";
       let url = `${baseURL}/applications`;
       
       const res = await fetch(url);
@@ -411,7 +411,7 @@ export default function AdminPanel() {
 
   const updateStatus = async (id, newStatus, salary = null) => {
     try {
-      const baseURL = "https://adminag-production.up.railway.app";
+      const baseURL = "https://agfoodbackend-production-63ff.up.railway.app";
       const endpoint = newStatus === "Approved" 
         ? "approve-application" 
         : "reject-application";
