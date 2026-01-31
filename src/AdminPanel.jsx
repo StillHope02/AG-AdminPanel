@@ -172,16 +172,16 @@
 //       // 🔧 FIXED: Correct URL
 //       const baseURL = "https://agfoodbackendcopy-production.up.railway.app";
 //       let url = `${baseURL}/applications`;
-      
+
 //       // If you want server-side filtering, add query parameter support on server
 //       const res = await fetch(url);
 //       const data = await res.json();
-      
+
 //       // Filter on client side
 //       const filteredData = statusFilter !== "All" 
 //         ? data.filter(app => app.status === statusFilter)
 //         : data;
-      
+
 //       setApplications(filteredData);
 //       setLoading(false);
 //     } catch (err) {
@@ -201,7 +201,7 @@
 //       const endpoint = newStatus === "Approved" 
 //         ? "approve-application" 
 //         : "reject-application";
-      
+
 //       const res = await fetch(`${baseURL}/api/${endpoint}/${id}`, {
 //         method: "PATCH",
 //         headers: { 
@@ -209,9 +209,9 @@
 //         }
 //         // No body needed since it's just status update
 //       });
-      
+
 //       const data = await res.json();
-      
+
 //       if (data.success) {
 //         alert(data.message);
 //         // Update local state
@@ -379,14 +379,14 @@ export default function AdminPanel() {
       setLoading(true);
       const baseURL = "https://agfoodbackendcopy-production.up.railway.app";
       let url = `${baseURL}/applications`;
-      
+
       const res = await fetch(url);
       const data = await res.json();
-      
-      const filteredData = statusFilter !== "All" 
+
+      const filteredData = statusFilter !== "All"
         ? data.filter(app => app.status === statusFilter)
         : data;
-      
+
       setApplications(filteredData);
       setLoading(false);
     } catch (err) {
@@ -398,6 +398,33 @@ export default function AdminPanel() {
   useEffect(() => {
     fetchApplications(filter);
   }, [filter]);
+
+  const handleDelete = async (id) => {
+
+    try {
+      const baseURL = "https://agfoodbackendcopy-production.up.railway.app";
+
+      const res = await fetch(`${baseURL}/api/application/${id}`, {
+        method: "DELETE",
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        alert(data.message || "Deleted successfully");
+
+        // UI se remove
+        setApplications(prev =>
+          prev.filter(app => app._id !== id)
+        );
+      } else {
+        alert(data.message || "Failed to delete");
+      }
+    } catch (err) {
+      console.error("Delete error:", err);
+      alert("Error deleting user");
+    }
+  };
 
   const openSalaryModal = (id, name) => {
     setSalaryModal({ show: true, id, name });
@@ -412,29 +439,29 @@ export default function AdminPanel() {
   const updateStatus = async (id, newStatus, salary = null) => {
     try {
       const baseURL = "https://agfoodbackendcopy-production.up.railway.app";
-      const endpoint = newStatus === "Approved" 
-        ? "approve-application" 
+      const endpoint = newStatus === "Approved"
+        ? "approve-application"
         : "reject-application";
-      
+
       const requestBody = {};
       if (newStatus === "Approved" && salary) {
         requestBody.salary = salary;
       }
-      
+
       const res = await fetch(`${baseURL}/api/${endpoint}/${id}`, {
         method: "PATCH",
-        headers: { 
-          "Content-Type": "application/json" 
+        headers: {
+          "Content-Type": "application/json"
         },
         body: JSON.stringify(requestBody)
       });
-      
+
       const data = await res.json();
-      
+
       if (data.success) {
         alert(data.message);
         setApplications(prev =>
-          prev.map(app => 
+          prev.map(app =>
             app._id === id ? { ...app, status: newStatus, salary: salary || app.salary } : app
           )
         );
@@ -468,14 +495,13 @@ export default function AdminPanel() {
           <button
             key={s}
             onClick={() => setFilter(s)}
-            className={`px-3 py-1 rounded ${
-              filter === s ? "bg-blue-700 text-white" : "bg-gray-300 text-black"
-            }`}
+            className={`px-3 py-1 rounded ${filter === s ? "bg-blue-700 text-white" : "bg-gray-300 text-black"
+              }`}
           >
             {s}
           </button>
         ))}
-        <button 
+        <button
           onClick={() => fetchApplications(filter)}
           className="ml-4 px-3 py-1 bg-green-600 text-white rounded"
         >
@@ -561,11 +587,10 @@ export default function AdminPanel() {
                     )}
                   </td>
                   <td className="py-2 px-4 border">
-                    <span className={`px-2 py-1 rounded ${
-                      app.status === "Approved" ? "bg-green-100 text-green-800" :
+                    <span className={`px-2 py-1 rounded ${app.status === "Approved" ? "bg-green-100 text-green-800" :
                       app.status === "Rejected" ? "bg-red-100 text-red-800" :
-                      "bg-yellow-100 text-yellow-800"
-                    }`}>
+                        "bg-yellow-100 text-yellow-800"
+                      }`}>
                       {app.status}
                     </span>
                   </td>
@@ -584,9 +609,23 @@ export default function AdminPanel() {
                         >
                           Reject
                         </button>
+                        <button
+                          onClick={() => handleDelete(app._id)}
+                          className="bg-red-600 text-white px-3 py-1 rounded text-sm hover:bg-red-700"
+                        >
+                          Delete
+                        </button>
                       </div>
                     ) : (
-                      <span className="text-gray-500">No actions</span>
+                      <>
+                        <button
+                          onClick={() => handleDelete(app._id)}
+                          className="bg-red-600 text-white px-3 py-1 rounded text-sm hover:bg-red-700"
+                        >
+                          Delete
+                        </button>
+                        {/* <span className="text-gray-500">No actions</span> */}
+                      </>
                     )}
                   </td>
                 </tr>
@@ -604,7 +643,7 @@ export default function AdminPanel() {
             <p className="text-gray-600 mb-4">
               Approving application for: <strong>{salaryModal.name}</strong>
             </p>
-            
+
             <label className="block mb-2 font-semibold">
               Enter Monthly Salary (USD):
             </label>
@@ -615,7 +654,7 @@ export default function AdminPanel() {
               placeholder="e.g., 4500"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-green-500"
             />
-            
+
             <div className="flex gap-3 justify-end">
               <button
                 onClick={closeSalaryModal}
