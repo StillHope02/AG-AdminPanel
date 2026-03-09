@@ -10,8 +10,8 @@
 // //       setLoading(true);
 // //       const url =
 // //         statusFilter && statusFilter !== "All"
-// //           ? `https://agfoodbackendcopy-production.up.railway.app/applications/api/approve-application${statusFilter}`
-// //           : "https://agfoodbackendcopy-production.up.railway.app/applications";
+// //           ? `https://agfoodbackend-production-aeec.up.railway.app/applications/api/approve-application${statusFilter}`
+// //           : "https://agfoodbackend-production-aeec.up.railway.app/applications";
 
 // //       const res = await fetch(url);
 // //       const data = await res.json();
@@ -29,7 +29,7 @@
 
 // //   const updateStatus = async (id, newStatus) => {
 // //     try {
-// //       const res = await fetch(`https://agfoodbackendcopy-production.up.railway.app/api/approve-application/${id}`, {
+// //       const res = await fetch(`https://agfoodbackend-production-aeec.up.railway.app/api/approve-application/${id}`, {
 // //         method: "PATCH",
 // //         headers: { "Content-Type": "application/json" },
 // //         body: JSON.stringify({ status: newStatus }),
@@ -99,7 +99,7 @@
 // //                   <td className="py-2 px-4 border">{app.experience}</td>
 // //                   <td className="py-2 px-4 border">
 // //                     <a
-// //                       href={`https://agfoodbackendcopy-production.up.railway.app/${app.photoURL}`}
+// //                       href={`https://agfoodbackend-production-aeec.up.railway.app/${app.photoURL}`}
 // //                       target="_blank"
 // //                       rel="noreferrer"
 // //                       className="text-blue-600 underline"
@@ -109,7 +109,7 @@
 // //                   </td>
 // //                   <td className="py-2 px-4 border">
 // //                     <a
-// //                       href={`https://agfoodbackendcopy-production.up.railway.app/${app.passportURL}`}
+// //                       href={`https://agfoodbackend-production-aeec.up.railway.app/${app.passportURL}`}
 // //                       target="_blank"
 // //                       rel="noreferrer"
 // //                       className="text-blue-600 underline"
@@ -290,7 +290,7 @@
 //                   <td className="py-2 px-4 border">
 //                     {app.photoURL && (
 //                       <a
-//                         href={`https://agfoodbackendcopy-production.up.railway.app/${app.photoURL}`}
+//                         href={`https://agfoodbackend-production-aeec.up.railway.app/${app.photoURL}`}
 //                         target="_blank"
 //                         rel="noreferrer"
 //                         className="text-blue-600 underline"
@@ -302,7 +302,7 @@
 //                   <td className="py-2 px-4 border">
 //                     {app.passportURL && (
 //                       <a
-//                         href={`https://agfoodbackendcopy-production.up.railway.app/${app.passportURL}`}
+//                         href={`https://agfoodbackend-production-aeec.up.railway.app/${app.passportURL}`}
 //                         target="_blank"
 //                         rel="noreferrer"
 //                         className="text-blue-600 underline"
@@ -314,7 +314,7 @@
 //                   <td className="py-2 px-4 border">
 //                     {app.certificateURL ? (
 //                       <a
-//                         href={`https://agfoodbackendcopy-production.up.railway.app/${app.certificateURL}`}
+//                         href={`https://agfoodbackend-production-aeec.up.railway.app/${app.certificateURL}`}
 //                         target="_blank"
 //                         rel="noreferrer"
 //                         className="text-blue-600 underline"
@@ -551,7 +551,7 @@ export default function AdminPanel() {
                   <td className="py-2 px-4 border">
                     {app.photoURL && (
                       <a
-                        href={`https://agfoodbackendcopy-production.up.railway.app/${app.photoURL}`}
+                        href={`https://agfoodbackend-production-aeec.up.railway.app/${app.photoURL}`}
                         target="_blank"
                         rel="noreferrer"
                         className="text-blue-600 underline"
@@ -563,7 +563,7 @@ export default function AdminPanel() {
                   <td className="py-2 px-4 border">
                     {app.passportURL && (
                       <a
-                        href={`https://agfoodbackendcopy-production.up.railway.app/${app.passportURL}`}
+                        href={`https://agfoodbackend-production-aeec.up.railway.app/${app.passportURL}`}
                         target="_blank"
                         rel="noreferrer"
                         className="text-blue-600 underline"
@@ -575,7 +575,7 @@ export default function AdminPanel() {
                   <td className="py-2 px-4 border">
                     {app.certificateURL ? (
                       <a
-                        href={`https://agfoodbackendcopy-production.up.railway.app/${app.certificateURL}`}
+                        href={`https://agfoodbackend-production-aeec.up.railway.app/${app.certificateURL}`}
                         target="_blank"
                         rel="noreferrer"
                         className="text-blue-600 underline"
